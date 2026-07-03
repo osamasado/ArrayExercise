@@ -52,16 +52,9 @@ public class Main {
         }
         //4. Minimum und Maximum finden
         int[] zahlen = { -10, 5, 30, 40, -70, 90, 150, 1000, -10000 };
-        int max = -2147483648;
-        int min = 2147483647;
-        for (int zahl: zahlen ) {
-            if(zahl > max) {
-                max = zahl;
-            }
-            if(zahl < min) {
-                min = zahl;
-            }
-        }
+        int max = getMax(zahlen);
+        int min = getMin(zahlen);
+
         System.out.println("Max: " + max);
         System.out.println("Min: " + min);
 
@@ -115,5 +108,30 @@ public class Main {
         System.out.println("Before: " + Arrays.toString(myNumbers));
         Arrays.sort(myNumbers);
         System.out.println("After: " + Arrays.toString(myNumbers));
+
+        int maxNumber = getMax(myNumbers);
+        int minNumber = getMin(myNumbers);
+
+        System.out.println("Max number: " + maxNumber);
+        System.out.println("Min number: " + minNumber);
+    }
+
+    public static int getMax(int[] arr) {
+        int max = -2147483648;
+        for (int zahl: arr ) {
+            if(zahl > max) {
+                max = zahl;
+            }
+        }
+        return max;
+    }
+    public static int getMin(int[] arr) {
+        int min = 2147483647;
+        for (int zahl: arr ) {
+            if(zahl < min) {
+                min = zahl;
+            }
+        }
+        return min;
     }
 }
